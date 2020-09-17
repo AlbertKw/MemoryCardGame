@@ -54,10 +54,15 @@ const Gameboard = {
 
         this.properties.faceUpCards.push(card);
         if(this.properties.faceUpCards.length == 2) {
-          this.properties.cards.forEach(card => {card.style.pointerEvents = "none"});
+          this.properties.cards.forEach(card => {
+            card.style.pointerEvents = "none"
+          });
           await sleep(500);
-          this.properties.cards.forEach(card => {card.style.pointerEvents = "auto"});
           this.checkIfCardsAreTheSame();
+          this.properties.cards.forEach(card => {
+            if(card.dataset.faceup === "false")
+              card.style.pointerEvents = "auto";
+          });
           this.properties.faceUpCards = [];
         }
       });
