@@ -1,7 +1,8 @@
 const Gameboard = {
   domElements: {
     cardsContainer: null,
-    startButton: null
+    startButton: null,
+    cardsNumberSlider: null,
   },
 
   properties: {
@@ -15,6 +16,7 @@ const Gameboard = {
   init() {
     this.domElements.cardsContainer = document.querySelector(".cards-container");
     this.domElements.startButton = document.querySelector(".start-game");
+    this.domElements.cardsNumberSlider = document.getElementById("numberOfCardsSlider");
     this.domElements.startButton.addEventListener("click", () => {
       this.properties.cards.forEach(card => {
         card.setAttribute("src", `img/card-back.jpg`);
@@ -24,7 +26,7 @@ const Gameboard = {
       this.domElements.startButton.style.visibility = "hidden";
     })
 
-    this.properties.numberOfCards = 6;     // Temporary, then number of cards are taken from settings
+    this.properties.numberOfCards = this.domElements.cardsNumberSlider.value;
     this.properties.cardsNames = ['1', '2', '3'];      // Temporary, then cards are taken from img folder, then from database
     this.createCards();
     this.shuffleCards();

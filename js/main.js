@@ -36,10 +36,31 @@ const Navigation = {
     this.navigationButtons.settings.addEventListener("click", () => {
       this.views.startMenu.style.display = "none";
       this.views.settings.style.display = "block";
+      Settings.init();
     });
   }
 }
 
+const Settings = {
+  domElements: {
+    cardsNumberSlider: null,
+    cardsNumberOutput: null,
+  },
+
+  init() {
+    this.domElements.cardsNumberSlider = document.getElementById("numberOfCardsSlider");
+    this.domElements.cardsNumberOutput = document.getElementById("numberOfCards");
+
+    this.domElements.cardsNumberOutput.innerHTML = this.domElements.cardsNumberSlider.value;
+
+    this.domElements.cardsNumberSlider.oninput = () => {
+      this.domElements.cardsNumberOutput.innerHTML = this.domElements.cardsNumberSlider.value;
+    }
+
+  }
+};
+
 window.addEventListener("DOMContentLoaded", () => {
   Navigation.init();
-})
+});
+

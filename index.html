@@ -8,7 +8,7 @@
 </head>
 <body>
   <main class="main" role="main">
-    <section id="start-menu">
+    <section id="start-menu" class="options-box">
       <button class="new-game-btn">New Game</button>
       <button class="ranking-btn">Ranking</button>
       <button class="settings-btn">Settings</button>
@@ -19,11 +19,16 @@
        <button class="start-game">Start</button>
      </div>
     </section>
-    <section id="ranking">
+    <section id="ranking" class="options-box">
       <h1>Ranking</h1>
     </section>
-    <section id="settings">
+    <section id="settings" class="options-box">
       <h1>Settings</h1>
+      <div class="slidercontainer">
+        <span>Number of cards: </span>
+        <span id="numberOfCards"></span>
+        <input type="range" min="10" max="80" step="2" value="30" class="slider" id="numberOfCardsSlider">
+      </div>
     </section>
   </main>
 
