@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#start-menu {
+  background-color: lightcoral;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50vh;
+  width: 20vw;
+  margin: auto;
+}
+
+#start-menu button {
+  margin: 10% 0;
+}
+
+#gameboard {
+  display: none;
+}
+
+#ranking {
+  display: none;
+}
+
+#settings {
+  display: none;
+}
+
+.cards-container {
+  display: flex;
+  background-color: lightcoral;
+  height: 90vh;
+  width: 90vw;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: 40%;
+  flex-basis: auto;
+  user-select: none;
+}
