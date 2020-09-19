@@ -4,7 +4,7 @@ const Gameboard = {
     startButton: null,
     cardsNumberSlider: null,
   },
-
+// TODO: Resetowanie planszy po cofnięciu/zakończeniu gry
   properties: {
     points: 0,
     faceUpCards: [],
@@ -26,8 +26,8 @@ const Gameboard = {
       this.domElements.startButton.style.visibility = "hidden";
     })
 
-    this.properties.numberOfCards = this.domElements.cardsNumberSlider.value;
-    this.properties.cardsNames = ['1', '2', '3'];      // Temporary, then cards are taken from img folder, then from database
+    this.properties.numberOfCards = Math.floor(this.domElements.cardsNumberSlider.value / 2);
+    this.properties.cardsNames = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'].slice(0, this.properties.numberOfCards);      // Temporary, then cards are taken from img folder, then from database
     this.createCards();
     this.shuffleCards();
 
