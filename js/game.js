@@ -4,7 +4,7 @@ const Gameboard = {
     startButton: null,
     cardsNumberSlider: null,
   },
-// TODO: Resetowanie planszy po cofnięciu/zakończeniu gry
+
   properties: {
     points: 0,
     faceUpCards: [],
@@ -16,6 +16,7 @@ const Gameboard = {
   init() {
     this.domElements.cardsContainer = document.querySelector(".cards-container");
     this.domElements.startButton = document.querySelector(".start-game");
+    console.log(this.domElements.startButton);
     this.domElements.cardsNumberSlider = document.getElementById("numberOfCardsSlider");
     this.domElements.startButton.addEventListener("click", () => {
       this.properties.cards.forEach(card => {
@@ -90,6 +91,8 @@ const Gameboard = {
         card.style.pointerEvents = "none";
       });
       this.properties.points++;
+      if(this.properties.faceUpCards.length === this.properties.numberOfCards * 2)
+        this.endGame();
     } else {
       faceUpCards.forEach(card => {
         card.setAttribute("src", `img/card-back.jpg`);
@@ -98,7 +101,11 @@ const Gameboard = {
       });
       this.properties.points--;
     }
-  }
+  },
+
+  endGame() {
+    this.domElements.cardsContainer.innerHTML = "";
+  },
 }
 
 const sleep = ms => {

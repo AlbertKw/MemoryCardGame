@@ -55,6 +55,8 @@ const Navigation = {
           button.addEventListener("click", () => {
             this.properties.currentlyDisplayedView.style.display = "none";
             this.views.startMenu.style.display = "flex";
+            if(this.properties.currentlyDisplayedView === this.views.gameboard)
+              Gameboard.endGame();
           });
         });
       }
